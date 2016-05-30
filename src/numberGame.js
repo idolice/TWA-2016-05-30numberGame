@@ -1,26 +1,36 @@
-function getNumbers(){
-    return [1,2,3,4];
-}
+ var number=require('../src/getNumber.js');
+ var generate=require('../src/generateNum.js');
 
 function checkForm(numbers){
         var tempArray=numbers;
+        var Array=[0,1,2,3,4,5,6,7,8,9];
         var numberLength=tempArray.length;
         if(numberLength!=4){
-            return 2;
-        }
+            return 0;
+        }else
+        if(ifNumberRepeated(tempArray)==0){
+            return 0;
+        }else{
         tempArray.forEach(function(item){
-            var numOfRepeat=ifNumberAlreadyExist(item,numbers);
-            if(numOfRepeat==1){
-                return 3;
+           if(ifNumberAlreadyExist(item,Array)==0){
+                return 0;
             }
-
-        })
-        tempArray.forEach(function(item){
-            if(item<0||item>9){
-                return 4;
-            }
-        })
+        });}
         return 1;
+
+}
+
+function ifNumberRepeated(array){
+    var index;
+    for(var i=0;i<array.length;i++){
+    for(var j=i+1;j<array.length;j++){
+        if(array[i]==array[j]){
+            index=[i,j];
+            return 0;
+        }
+    }
+   }
+   return 1;
 
 }
 
@@ -40,16 +50,7 @@ function ifNumberMatchPosition(num,inputArray,randomArray){
     }
 }
 
-function generateNumber(){
-    var randomNumbers=[];
-    while(randomNumbers.length<4){
-    var randomNumber=Math.floor(Math.random()*10);
-    if(ifNumberAlreadyExist(randomNumber,randomNumbers)==0){
-        randomNumbers.push(randomNumber);
-    }
-    }
-    return randomNumbers;
-}
+
 
 function compareNumbers(inputArray,randomArray){
     var tempArray=inputArray;
@@ -70,28 +71,33 @@ function compareNumbers(inputArray,randomArray){
     return outputString;
 }
 
+
+
 function mainGame(){
     var totalTimes=6;
-    var systemNumbers=generateNumber();
+    var result;
+    var gen=new generate();
+    var systemNumbers=gen.generateNumber();
     while(totalTimes>0){
-        var userNumbers=getNumbers();
+        var answer=new number();
+        var userNumbers=answer.getNumbers();
         var check=checkForm(userNumbers);
         if(check!=1){
-            continue;
-        }
+          console.log("form wrong");
+          continue;
+        };
         var result=compareNumbers(userNumbers,systemNumbers);
         if(result=='4A0B'){
-         result='congratulations!';
-         console.log(result);
-         return result;
+          result='congratulations!';
+          console.log(result);
+          return result;
         }else{
-            result=result+'\nyou have'+totalTimes+'times';
+            result=result+'\nyou have '+totalTimes+' times';
             console.log(result);
             totalTimes--;
-            continue;
         }
-        }
-        result='you failed';
-        console.log(result);
 
+        }
     }
+
+module.exports=compareNumbers;

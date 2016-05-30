@@ -1,46 +1,6 @@
-describe('number game test',function(){
-describe('check input Number',function(){
-var output;
-
-
-it('input should be number',function(){
-    //given
-    var inputArray;
-    //when
-    inputArray=['A',1,2,3];
-
-    //then
-    expect(checkForm(inputArray)).toEqual(4);
-
-})
-
-it('input length should be 4',function(){
-    //given
-    var inputArray;
-    //when
-    inputArray=[1,2,3];
-
-    //then
-    expect(checkForm(inputArray)).toEqual(2);
-
-})
-
-it('input should not repeat',function(){
-    //given
-    var inputArray=[];
-    //when
-   inputArray=[1,1,2,2]
-    //then
-     expect(checkForm(inputArray)).toEqual(4);
-
-})
-
-
-
-})
-
 describe('check result',function(){
 
+var compareNumbers=require('../src/compareNumber.js');
 it('should print 0A0B if inputs are all wrong',function(){
     //given
     var userInput=[1,2,3,4];
@@ -84,7 +44,4 @@ it('should print 0A4B if inputs number are all right but position are all wrong'
     expect(result).toEqual('0A4B');
 
 })
-})
-
-
 })
