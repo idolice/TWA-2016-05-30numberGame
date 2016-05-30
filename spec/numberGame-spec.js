@@ -6,61 +6,35 @@ var output;
 it('input should be number',function(){
     //given
     var inputArray;
-    var judgeArray=[];
     //when
-    inputArray=getNumbers();
-    inputArray.forEach(function(item){
-        if(item<0||item>9){
-            judgeArray.push(0);
-        }else{
-            judgeArray.push(1);
-        }
-    })
+    inputArray=['A',1,2,3];
+
     //then
-    expect(judgeArray).toEqual([1,1,1,1]);
+    expect(checkForm(inputArray)).toEqual(0);
 
 })
 
 it('input length should be 4',function(){
     //given
-    var inputArray=[];
-    var numOfArray=0;
+    var inputArray;
     //when
-    inputArray=getNumbers();
-    numOfArray=inputArray.length;
+    inputArray=[1,2,3];
+
     //then
-    expect(numOfArray).toEqual(4);
+    expect(checkForm(inputArray)).toEqual(0);
 
 })
 
 it('input should not repeat',function(){
     //given
     var inputArray=[];
-    var tempArray=[];
-    var judgeArray=[];
     //when
-    inputArray=getNumbers();
-    tempArray=inputArray;
-    tempArray.forEach(function(item){
-        var numOfRepeat=ifNumberAlreadyExist(item,inputArray);
-        judgeArray.push(numOfRepeat);
-    })
-
+   inputArray=[1,1,2,2]
     //then
-    expect(judgeArray).toEqual([0,0,0,0]);
+     expect(checkForm(inputArray)).toEqual(0);
 
 })
 
-it('print D,C,B,A  grades are 60,70,80,90',function(){
-    //given
-    var inputs2=[60,70,80,90];
-    var text2='outputs:\nD\nC\nB\nA\n';
-    //when
-     output=getGradesLevel(inputs2);
-    //then
-    expect(output).toEqual(text2);
-
-})
 
 
 })
