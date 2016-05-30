@@ -6,18 +6,18 @@ function checkForm(numbers){
         var tempArray=numbers;
         var numberLength=tempArray.length;
         if(numberLength!=4){
-            return 0;
+            return 2;
         }
         tempArray.forEach(function(item){
-            var numOfRepeat=ifNumberAlreadyExist(item,inputArray);
+            var numOfRepeat=ifNumberAlreadyExist(item,numbers);
             if(numOfRepeat==1){
-                return 0;
+                return 3;
             }
 
         })
         tempArray.forEach(function(item){
             if(item<0||item>9){
-                return 0;
+                return 4;
             }
         })
         return 1;
@@ -76,7 +76,7 @@ function mainGame(){
     while(totalTimes>0){
         var userNumbers=getNumbers();
         var check=checkForm(userNumbers);
-        if(check==0){
+        if(check!=1){
             continue;
         }
         var result=compareNumbers(userNumbers,systemNumbers);
