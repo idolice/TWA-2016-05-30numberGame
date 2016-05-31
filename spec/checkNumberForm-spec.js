@@ -3,8 +3,8 @@ describe('check input Number',function(){
 var checkForm=require('../src/checkform.js');
 var number=require('../src/getNumber.js');
 beforeEach(function(){
-    var num=new number();
-    spyOn(num,"getNumbers").and.returnValue([1,2,3,4]);
+
+    spyOn(number,"getNumbers").and.returnValue([1,2,3,4]);
 })
 
 it('input should be number',function(){

@@ -1,6 +1,6 @@
 
 var ifNumberAlreadyExist=require('./existCheck.js');
-var generate=function(){
+
     var generateNumber=function(){
         var randomNumbers=[];
         while(randomNumbers.length<4){
@@ -11,6 +11,6 @@ var generate=function(){
         }
         return randomNumbers;
     };
-    return {generateNumber:generateNumber};
-}
-module.exports=generate;
+
+
+module.exports={generateNumber:generateNumber};

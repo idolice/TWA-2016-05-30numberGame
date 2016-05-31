@@ -8,11 +8,10 @@
  function mainGame(){
     var totalTimes=6;
     var result;
-    var gen=new generate();
-    var systemNumbers=gen.generateNumber();
+    var systemNumbers=generate.generateNumber();
     while(totalTimes>0){
-        var answer=new number();
-        var userNumbers=answer.getNumbers();
+        console.log(`you have ${totalTimes} times`);
+        var userNumbers=number.getNumbers();
         var check=checkForm(userNumbers);
         if(check!=1){
           console.log("form wrong");
@@ -22,14 +21,15 @@
         if(result=='4A0B'){
           result='congratulations!';
           console.log(result);
-          return result;
+          return 1;
         }else{
-            result=result+'\nyou have '+totalTimes+' times';
             console.log(result);
             totalTimes--;
         }
 
         }
+        console.log('you failed');
+        return 0;
     }
 
- module.exports=compareNumbers;
+ module.exports=mainGame;

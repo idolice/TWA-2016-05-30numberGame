@@ -1,6 +1,6 @@
 
 
-var number=function(){
+
     var getNumbers=function(){
     const readline = require('readline');
 
@@ -15,7 +15,7 @@ var number=function(){
       return userNumber;
        });
     };
-    return {getNumbers:getNumbers};
-}
 
-module.exports=number;
+
+
+module.exports={getNumbers:getNumbers};
